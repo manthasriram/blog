@@ -8,12 +8,12 @@ author:     "Sriram Mantha"
 
 #Logging in AngularJS
 
-```javascript
+~~~javascript
 //Enable Debug logging
 angular.module("app-config-ui").config(function($logProvider){
   $logProvider.debugEnabled(true);
 });
-```
+~~~
 
 ```javascript
 angular.module('logExample', [])
