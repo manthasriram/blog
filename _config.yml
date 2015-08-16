@@ -1,8 +1,8 @@
 # Site settings
-title: Clean Blog
+title: mantha.io
 header-img: img/home-bg.jpg
 email: sriram.mantha@gmail.com
-description: "Write your site description here. It will be used as your sites meta description as well!"
+description: "code, tech, gadgets and some ramblings"
 baseurl: "/blog"
 url: "http://yourdomain.com"
 twitter_username: sriramreloaded
