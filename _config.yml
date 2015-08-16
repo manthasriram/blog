@@ -10,7 +10,9 @@ github_username:  manthasriram
 facebook_username:  mantha_sriram
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet2
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 highlighter: pygments
 permalink: pretty
 paginate: 5
