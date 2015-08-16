@@ -11,7 +11,7 @@ author:     "Sriram Mantha"
 Here are an example on how you could enable logging in angularjs
 
 Enable logging to the preferred level
-~~~ javascript
+~~~
 //Enable Debug logging
 angular.module("app-config-ui").config(function($logProvider){
   $logProvider.debugEnabled(true);
@@ -19,7 +19,6 @@ angular.module("app-config-ui").config(function($logProvider){
 ~~~
 
 inject the logger dependency and log the debug message
-
 ~~~ javascript
 angular.module('logExample', [])
 .controller('LogController', ['$scope', '$log', function($scope, $log) {
