@@ -1,5 +1,5 @@
 # Site settings
-title: mantha.io
+title: srirammantha.io
 header-img: img/home-bg.jpg
 email: sriram.mantha@gmail.com
 description: "code, tech, gadgets and some ramblings"
@@ -10,7 +10,7 @@ github_username:  manthasriram
 facebook_username:  mantha_sriram
 
 # Build settings
-markdown: redcarpet2
+markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 highlighter: pygments

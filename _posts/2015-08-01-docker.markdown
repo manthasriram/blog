@@ -1,0 +1,35 @@
+---
+layout:     post
+title:      "Docker"
+subtitle:   "Docker basics"
+date:       2015-08-01 12:00:00
+author:     "Sriram Mantha"
+---
+
+Off late I have been hearing good things about docker. So I decided to figure out what it is and figure out if we could solve some of our problems
+Here are a few basics about docker
+
+Running a docker image
+
+```
+ >docker run -p 8080:8080 -v /var/myvolume myimage
+```
+
+The above command fetches the latest image from the myimage repo from docker hub if this is not present in your local workspace
+-v specifies that location of the volume
+
+If you would like to map a local volume into your docker container you would have to mention
+-v  /<local path>: <container path >
+
+Saving a docker image
+
+Assuming you have done some changes to your docker image you can save your changes by committing your image  
+use the command
+
+```
+> docker ps to get the container id
+and then run
+> docker commit <container-id> myimage-1
+```
+
+* Keep in mind the contents of the volume are not saved while committing the image

@@ -6,11 +6,12 @@ date:       2015-08-16 12:00:00
 author:     "Sriram Mantha"
 ---
 
-#Logging in AngularJS
+#Logging in AngularJS. Test
 
 Here are an example on how you could enable logging in angularjs
 
 Enable logging to the preferred level
+
 ```javascript
 //Enable Debug logging
 angular.module("app-config-ui").config(function($logProvider){
@@ -19,6 +20,7 @@ angular.module("app-config-ui").config(function($logProvider){
 ```
 
 inject the logger dependency and log the debug message
+
 ``` javascript
 angular.module('logExample', [])
 .controller('LogController', ['$scope', '$log', function($scope, $log) {
@@ -32,6 +34,7 @@ angular.module('logExample', [])
 #Using ng-class
 
 Usage
+
 ``` javascript
  ng-class="{ 'class': expr}"
 ```
@@ -39,6 +42,7 @@ Usage
 Provide an expression to evaluate the class conditionally
 
 Example
+
 ``` javascript
  ng-class="{'caret': menu.subMenus && menu.subMenus.length > 0}"
 ```
@@ -50,6 +54,7 @@ You often add html code to your webpage dynamically through javascript code.
 You will need to compile the html using angular's $compile function for angular to evaluate the dynamic code
 
 For example you add
+
 ``` javascript
 $('<td/>').html("<div ng-model="name"> </div>")
 ```
