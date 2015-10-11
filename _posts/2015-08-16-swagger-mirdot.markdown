@@ -1,36 +1,79 @@
-{
-  "actor": {
-    "id": "245285",
-    "auth_claims": [
-      "CLIENT_ID_SECRET"
-    ],
-    "auth_state": "LOGGEDIN",
-    "account_number": "1539671732305563784",
-    "encrypted_account_number": "SZEKQNBKSSQ8L",
-    "party_id": "1539671732305563784",
-    "user_type": "API_CALLER",
-    "client_id": "AZt_Tb-XepApQGZYMW7cd1R0FdZDlXHB6isMkoKOHvqYbm6R7s63DKFe7Lf-Ib2JEIJ05F_J45yCJMtl"
-  },
-  "auth_token": "A0056koFVq-64cd9j0thfyfh60-RSmXikakx0JKDM7MtNsM",
-  "auth_token_type": "ACCESS_TOKEN",
-  "global_session_id": "I180e68e2-84e0-4f26-8c47-2ff1b2563865",
-  "last_validated": 1440181381,
-  "scopes": [
-    "https://api.paypal.com/v1/payments/.*",
-    "https://api.paypal.com/v1/vault/credit-card",
-    "https://uri.paypal.com/services/applications/webhooks",
-    "openid",
-    "https://api.paypal.com/v1/vault/credit-card/.*",
-    "https://uri.paypal.com/services/payments/basic",
-    "https://uri.paypal.com/wallet/bank-accounts/read",
-    "https://uri.paypal.com/wallet/bank-accounts/update"
-  ],
-  "client_id": "AZt_Tb-XepApQGZYMW7cd1R0FdZDlXHB6isMkoKOHvqYbm6R7s63DKFe7Lf-Ib2JEIJ05F_J45yCJMtl",
-  "app_id": "APP-17Y64076HB680974W",
-  "claims": {
-    "actor_payer_id": "SZEKQNBKSSQ8L"
-  },
-  "subjects": []
-}
+---
+layout:     post
+title:      "Swagger, Miredot - API documenting tools"
+subtitle:   "Swagger,Miredot"
+date:       2015-10-12 12:00:00
+author:     Sriram Mantha
+---
 
+## Swagger
 
+### Generating swagger.json from your existing code base
+
+Import Swagger core lib
+
+```
+<dependency>
+      <groupId>com.wordnik</groupId>
+      <artifactId>swagger-core</artifactId>
+      <scope>compile</scope>
+      <version>1.5.1-M2</version>
+      <exclusions>
+        <exclusion>
+          <groupId>javax.ws.rs</groupId>
+          <artifactId>jsr311-api</artifactId>
+        </exclusion>
+      </exclusions>
+</dependency>
+```
+
+Here is a useful maven plugin developed by that can be used to generate the swagger.json from your existing source code.
+The following plugin parses swagger annotation to generate a swagger json. Here is the [github repo](https://github.com/kongchen/swagger-maven-plugin)
+The swagger.json can be fed to a swagger ui which neatly displays the API's details in a nice UI.
+
+```
+<plugin>
+        <groupId>com.github.kongchen</groupId>
+        <artifactId>swagger-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <apiSources>
+            <apiSource>
+              <locations>com.mysaas.resource</locations>
+              <schemes>http,https</schemes>
+              <host>localhost:8080</host>
+              <basePath>/api</basePath>
+              <info>
+                <title>Swagger Maven Plugin Sample</title>
+                <version>v1</version>
+                <!-- use markdown here because I'm using markdown for output, if 
+                  you need to use html or other markup language, you need to use your target 
+                  language, and note escape your description for xml -->
+                <description>
+                  This is a sample.
+                </description>
+              </info>
+              <!-- Support classpath or file absolute path here. 1) classpath e.g: 
+                "classpath:/markdown.hbs", "classpath:/templates/hello.html" 2) file e.g: 
+                "${basedir}/src/main/resources/markdown.hbs", "${basedir}/src/main/resources/template/hello.html" -->
+              <templatePath>${basedir}/src/test/resources/strapdown.html.hbs</templatePath>
+              <outputPath>${basedir}/generated/document.html</outputPath>
+              <swaggerDirectory>${basedir}/generated/swagger-ui</swaggerDirectory>
+            </apiSource>
+          </apiSources>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+</plugin>
+```
+
+### Swagger UI
+
+Swagger resource definition file can be used to generate Client stubs.
+Here is the github [link ](https://github.com/swagger-api/swagger-codegen)
