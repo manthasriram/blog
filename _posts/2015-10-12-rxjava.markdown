@@ -1,0 +1,92 @@
+---
+layout:     post
+title:      "RX Java"
+subtitle:   "Rx Java - Understadings, thoughts"
+date:       2015-08-16 12:00:00
+author:     Sriram Mantha
+---
+
+## Whats RxJava
+
+
+Reactive programming offers efficient execution and composition by providing a collection of operators capable of filtering, selecting, transforming, combining and composing Observable's.
+The Observable data type can be thought of as a "push" equivalent to Iterable which is "pull". With an Iterable, the consumer pulls values from the producer and the thread blocks until those values arrive. By contrast with the Observable type, the producer pushes values to the consumer whenever values are available. This approach is more flexible, because values can arrive synchronously or asynchronously
+
+From <http://techblog.netflix.com/2013/02/rxjava-netflix-api.html> 
+
+## RxJava
+
+The basic building blocks of reactive code are Observables and Subscribers. An Observable emits items; a Subscriber consumes those items.
+There is a pattern to how items are emitted. An Observable may emit any number of items (including zero items), then it terminates either by successfully completing, or due to an error. For each Subscriber it has, an Observable calls Subscriber.onNext() any number of times, followed by either Subscriber.onComplete() or Subscriber.onError().
+
+From <http://blog.danlew.net/2014/09/15/grokking-rxjava-part-1/> 
+
+Simple Example
+
+
+```java
+Observable.from("Sriram","Hello").subscribe( s -> System.out.println(s));
+```
+
+On executing the above statement the output will be
+
+>Sriram
+>Hello
+
+A more complicated example
+
+```java
+
+public static Observable<List<String>> query() {
+
+		List<String> urls = new ArrayList<>();
+		urls.add("Sriram");
+		urls.add("Mantha");
+
+		return Observable.just(urls);
+	}
+
+query().flatMap(urls -> Observable.from(urls)).subscribe(url -> System.out.println(url));
+```
+
+The above example uses flatmap which returns an observable which can be used for further decomposition
+
+
+Other useful functions in RxJava are
+
+Map, filter etc
+
+
+##RxJava in Netflix
+
+RxJava is heavily used in Netflix for their API's and it seems like Netflix contributes to RxJava libraries
+http://mvnrepository.com/artifact/com.netflix.rxjava
+
+Here is a blog written Netflix folks on how and why they have been using RxJava
+http://techblog.netflix.com/2013/02/rxjava-netflix-api.html
+
+![Orchestration on server side](http://2.bp.blogspot.com/-8p4--m73yYc/UO4HsUo8HDI/AAAAAAAAAgE/0hRXr-lL6c4/s1600/request-single_1252.png)
+
+Here is a blog post that explains how Netflix fits RxJava in their overall architecture
+
+http://techblog.netflix.com/2013/01/optimizing-netflix-api.html
+
+	 
+	
+
+In order to reduce the chattiness Netflix adds an orchestration layer in between  the client call the actual backed services.
+The orchestration layer uses functional/reactive programming to orchestrates multiple api's efficiently. This give a 
+fully asynchronous service layer  and Reactive programming model
+
+A follow up diagram from the netflix blog
+
+![Rx Java Architected](http://3.bp.blogspot.com/-3o0uVQC3hY4/UO4HrkdURDI/AAAAAAAAAfw/lWI1kWSEe9s/s1600/architecture-overview_1252.png)
+
+
+RxJava and REST service
+
+Influenced by the following blog 
+
+http://www.lordofthejars.com/2014/07/rxjava-java8-java-ee-7-arquillian-bliss.html
+
+
