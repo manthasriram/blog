@@ -6,7 +6,14 @@ date:       2015-10-12 12:00:00
 author:     Sriram Mantha
 ---
 
+## API Documentation
+
+Its always a challenge keep your API well documented. To get changes out the door developers always make quick changes api's and the ship them out failing to update API documents
+
+
 ## Swagger
+
+Swagger provides open source libs/tools for generating docs for API's, Client Side SDK generation and dicoverability
 
 ### Generating swagger.json from your existing code base
 
@@ -77,3 +84,10 @@ The swagger.json can be fed to a swagger ui which neatly displays the API's deta
 
 Swagger resource definition file can be used to generate Client stubs.
 Here is the github [link ](https://github.com/swagger-api/swagger-codegen)
+
+## MireDot
+
+Basic docs can be generated using Miredot with it free version. Here is the [link](http://miredot.com/docs/getting-started/#)
+You will need to regsiter to get the license key which is based on the artifact Id. You will need to generate a new one when the maven artifact changes
+
+

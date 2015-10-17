@@ -1,5 +1,5 @@
 # Site settings
-title: srirammantha.io
+title: sriram.mantha.io
 header-img: img/home-bg.jpg
 email: sriram.mantha@gmail.com
 description: "code, tech, gadgets and some ramblings"
@@ -15,5 +15,5 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data"]
 highlighter: pygments
 permalink: pretty
-paginate: 5
+paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
