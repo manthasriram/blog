@@ -1,0 +1,24 @@
+# ELK stack
+
+### Setting up ELK stack using docker compose
+
+Docker compose makes setting up the ELK stack much easier
+To fetch the latest version of Elastic search, logstash and Kibana all you run the docker compose command
+
+You can create you own docker file or use one of them available out there
+
+Example
+
+https://github.com/deviantony/docker-elk
+
+cd in that the source directory and run 
+
+```
+> docker compose up 
+```
+
+The above command starts kibana and elastic search at ther respective ports
+
+
+### Using Logstash to push your logs to elastic search
+** Coming soon **
