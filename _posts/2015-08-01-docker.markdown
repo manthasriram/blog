@@ -33,7 +33,7 @@ sudo docker version
 *Docker compose*
 
 ```
-# Install docker-compose
+## Install docker-compose
 sudo sh -c "curl -L https://github.com/docker/compose/releases/download/1.4.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose"
 sudo chmod +x /usr/local/bin/docker-compose
 sudo sh -c "curl -L https://raw.githubusercontent.com/docker/compose/1.4.2/contrib/completion/bash/docker-compose > /etc/bash_completion.d/docker-compose"
@@ -64,3 +64,10 @@ and then run
 ```
 
 * Keep in mind the contents of the volume are not saved while committing the image
+
+## Getting in to the terminal for a docker instance
+
+The below command opens a bash shell
+```
+sudo docker exec -i -t 665b4a1e17b6 bash ## 
+```

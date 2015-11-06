@@ -1,3 +1,11 @@
+---
+layout:     post
+title:      "ELK "
+subtitle:   "Elastic, logstash and Kibana"
+date:       2015-10-20 12:00:00
+author:     "Sriram Mantha"
+---
+
 # ELK stack
 
 ### Setting up ELK stack using docker compose
@@ -22,3 +30,41 @@ The above command starts kibana and elastic search at ther respective ports
 
 ### Using Logstash to push your logs to elastic search
 ** Coming soon **
+
+
+### Elk performance tuning
+
+
+on ubuntu set
+
+The memory should be set to be half of the available memory
+
+```
+/etc/default/elasticsearch:
+
+ES_HEAP_SIZE=6gb   
+MAX_OPEN_FILES=65535
+MAX_LOCKED_MEMORY=unlimited
+```
+
+
+##Data retention and clean up
+
+Curator is a good tool that can be used to manage data retention
+
+Here is the link to the curator  [Curator](https://www.elastic.co/blog/curator-tending-your-time-series-indices)
+
+
+```
+curator --host <host> delete indices --older-than 3 --time-unit days    --timestring '%Y.%m.%d'
+```
+
+## Some useful plugins
+
+KOPF - Free plugin to manage your cluster
+
+```
+./plugin install lmenezes/elasticsearch-kopf/2.0/v2.0.0
+```
+```
+

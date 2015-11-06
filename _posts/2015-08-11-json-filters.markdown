@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Json Filter"
+title:      "Json Filters"
 subtitle:   "Json Filters"
 date:       2015-08-11 12:00:00
 author:     "Sriram Mantha"
