@@ -71,3 +71,35 @@ The below command opens a bash shell
 ```
 sudo docker exec -i -t 665b4a1e17b6 bash ## 
 ```
+
+## Viewing logs from the container
+
+```
+docker logs <container-id>
+```
+
+##Other examples
+
+### Starting mongo
+
+Fetches latest mongo, exposes port 27017 and maps local volume
+```
+docker run -d -p 27017:27017 -v /Users/srirammantha/personal/mongodata:/data/db --name mongodb mongo:latest
+```
+
+Connecting a spring bootapp to mongo instance
+
+Start the spring boot app 
+```
+docker run -e "SPRING_PROFILES_ACTIVE=dev" -p 8080:8080 --link mongodb:mongodb  -t springboot/app
+
+///configure
+The mongo url in your app as 
+uri: mongodb://mongodb:27017
+
+```
+
+
+
+
+
